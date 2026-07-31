@@ -1,18 +1,10 @@
 # AGENT.md — Developer & AI Agent Guidelines
 
-This repository contains **Morioh-cho Mod**, a hybrid Stardew Valley mod (C# SMAPI mod + Content Patcher content pack) that brings **Morioh-cho** (杜王町) from *S-City, M-Prefecture* in *JoJo's Bizarre Adventure Part 4: Diamond is Unbreakable* to Stardew Valley.
+This repository contains **Morioh-cho Mod**, a hybrid Stardew Valley mod (C# SMAPI mod + Content Patcher pack) adding **Morioh-cho** (S-City, M-Prefecture) from *JoJo's Bizarre Adventure Part 4: Diamond is Unbreakable*.
 
 ---
 
-## Lore & Mod Context
-
-- **Location**: Morioh-cho (杜王町) is a coastal town in S-City, M-Prefecture on the Japanese mainland.
-- **In-Game Destination**: Modeled as a coastal town expansion accessible via train or coastal transit from Pelican Town.
-- **Key Landmarks**: Morioh Station, Boing-Boing Rock along the coast, Kameyu Department Store, Café Deux Magots, Trattoria Trussardi, Morioh Radio Station.
-
----
-
-## Stack & Standards
+## Technical Stack
 
 - **Game Target**: Stardew Valley 1.6+
 - **API Framework**: SMAPI 4.0+
@@ -22,11 +14,11 @@ This repository contains **Morioh-cho Mod**, a hybrid Stardew Valley mod (C# SMA
 
 ---
 
-## Architecture & Preference Hierarchy
+## Preference Hierarchy
 
-1. **Content Patcher First**: Use Content Patcher JSON (`[CP] StardewIslandMod/content.json`) for maps (`Maps/MoriohCho`), sprite overlays, dialogue, location entries (`Data/Locations`), shop data, and audio cues whenever possible.
-2. **SMAPI APIs & Events Second**: Use C# event handlers (`ModEntry.cs`) for warp triggers, custom mechanics, unlock flags, save state persistence, and cutscene triggers.
-3. **Harmony Patches Last**: Use Harmony patches **only** if SMAPI public APIs or Content Patcher cannot accomplish the task.
+1. **Content Patcher First**: Use Content Patcher JSON (`[CP] StardewIslandMod/content.json`) for maps (`Maps/MoriohCho`), sprite overlays, dialogue, location entries (`Data/Locations`), shop data, and audio cues.
+2. **SMAPI APIs Second**: Use C# event handlers (`ModEntry.cs`) for warp triggers, custom mechanics, unlock flags, save state persistence, and cutscenes.
+3. **Harmony Patches Last**: Use Harmony patches only if SMAPI APIs or Content Patcher cannot accomplish the task.
 
 ---
 
@@ -34,79 +26,40 @@ This repository contains **Morioh-cho Mod**, a hybrid Stardew Valley mod (C# SMA
 
 ```
 focused-faraday/
-├── AGENT.md                       # AI Agent / Dev guidelines (this file)
-├── README.md                      # Human user documentation & setup guide
-├── StardewIslandMod.csproj        # .NET 6 C# project configured with ModBuildConfig
+├── StardewIslandMod.csproj        # .NET 6 C# project configuration
 ├── manifest.json                  # SMAPI mod manifest (NickBorrello.MoriohChoMod)
 ├── ModEntry.cs                    # Main SMAPI entry point & event handlers
+├── AGENT.md                       # Developer guidelines (this file)
+├── README.md                      # Repository documentation
 ├── [CP] StardewIslandMod/         # Content Patcher pack
-│   ├── manifest.json              # CP manifest (NickBorrello.MoriohChoMod.CP)
-│   └── content.json               # Content Patcher patch definitions
-├── assets/                        # Mod assets
-│   ├── maps/                      # Tiled .tmx maps (e.g. MoriohCho.tmx)
-│   ├── tilesets/                  # Tileset PNG spritesheets
-│   ├── sprites/                   # NPC, object, and vehicle sprites
-│   ├── portraits/                 # NPC dialogue portraits
-│   └── dialogue/                  # Dialogue JSON files
-├── scripts/                       # Developer automation scripts
-│   ├── build-mod.sh               # Build C# mod & deploy mod + CP pack to Mods/
-│   ├── validate-manifests.sh      # Validate JSON syntax and required fields
-│   ├── read-smapi-errors.sh       # Filter & read SMAPI error logs
-│   └── package-release.sh         # Package release ZIP with matching versions
-└── releases/                      # Built release ZIP archives (gitignored)
+├── assets/                        # Custom maps, tilesets, sprites, portraits, dialogue
+│   ├── maps/
+│   ├── tilesets/
+│   ├── sprites/
+│   ├── portraits/
+│   └── dialogue/
+└── scripts/                       # Build & test automation scripts
 ```
 
 ---
 
-## Required Workflow & Execution Rules
+## Development Rules
 
-1. **Inspect Before Changing**: Read `manifest.json`, `StardewIslandMod.csproj`, and `content.json` before modifying data structures.
-2. **Minimal Viable Edits**: Make target, localized edits. Do not refactor unrelated code.
-3. **Build & Deploy**: Always run `./scripts/build-mod.sh` after code or asset changes.
-4. **Validate JSON**: Run `./scripts/validate-manifests.sh` whenever modifying JSON manifests or `content.json`.
-5. **Inspect SMAPI Logs**: Read `SMAPI-latest.txt` (or run `./scripts/read-smapi-errors.sh`) to verify there are no startup errors or missing asset warnings.
-6. **Never Modify Game Originals**: Never alter or overwrite original game content files directly.
-7. **Never Touch Primary Save**: Always test on clean or dev saves.
-
----
-
-## C# & SMAPI Conventions
-
-- **Entry Class**: Must inherit from `StardewModdingAPI.Mod`.
-- **Lightweight `Entry()`**: Only subscribe to events and register services in `Entry()`. Do not perform heavy file or game operations here.
-- **Event Subscriptions**: Clean up temporary event handlers when no longer needed.
-- **Logging**: Use `this.Monitor.Log("message", LogLevel.Info/Debug/Warn/Error)`.
-- **APIs**:
-  - `this.Helper.Events` for game loops, player, and world events.
-  - `this.Helper.GameContent` for loading/editing game assets.
-  - `this.Helper.Data` for custom save data.
-- **No Hallucinated Identifiers**: Verify item IDs, location names, and event IDs against official SDV 1.6 specifications before referencing them in C#.
+1. Inspect `manifest.json`, `StardewIslandMod.csproj`, and `content.json` before modifying data structures.
+2. Make minimal, targeted edits.
+3. Always run `./scripts/build-mod.sh` after code or asset changes.
+4. Run `./scripts/validate-manifests.sh` whenever modifying JSON files.
+5. Check `SMAPI-latest.txt` (or `./scripts/read-smapi-errors.sh`) for errors or missing asset warnings.
+6. Never alter original game content files directly.
+7. Never test on a primary save file.
 
 ---
 
-## Content Patcher Conventions
-
-- Use `Format: "2.3.0"` or latest supported Content Patcher format.
-- Every patch entry must include a clear, descriptive `LogName`.
-- Use Content Patcher tokens (`{{Season}}`, `{{Day}}`, `{{Weather}}`, `{{HasFlag}}`, etc.) for conditions.
-- Test patches in-game using SMAPI console commands:
-  - `patch summary` — Lists all active patches and conditions.
-  - `patch reload NickBorrello.MoriohChoMod.CP` — Hot-reloads Content Patcher definitions without restarting the game.
-
----
-
-## Key Commands
+## Commands
 
 ```bash
-# Build C# mod and deploy to Stardew Valley Mods folder:
-./scripts/build-mod.sh
-
-# Validate JSON manifests & content packs:
-./scripts/validate-manifests.sh
-
-# Read SMAPI warnings/errors:
-./scripts/read-smapi-errors.sh
-
-# Package release zip:
-./scripts/package-release.sh
+./scripts/build-mod.sh          # Build C# mod & deploy mod + CP pack
+./scripts/validate-manifests.sh # Validate JSON syntax and manifest fields
+./scripts/read-smapi-errors.sh # Parse SMAPI error logs
+./scripts/package-release.sh   # Package release ZIP
 ```

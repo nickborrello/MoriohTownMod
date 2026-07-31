@@ -1,18 +1,38 @@
 # Morioh-cho Mod
 
-A Stardew Valley expansion mod that adds **Morioh-cho** (杜王町) from *JoJo's Bizarre Adventure Part 4: Diamond is Unbreakable* (S-City, M-Prefecture) as an explorable coastal town destination.
+A Stardew Valley expansion mod adding Morioh-cho from *JoJo's Bizarre Adventure Part 4: Diamond is Unbreakable*.
 
 ---
 
-## Features & Planned Landmarks
+## Roadmap
 
-In JoJo's Bizarre Adventure lore, Morioh-cho is a coastal town located in S-City, M-Prefecture. This mod adds Morioh-cho as a town expansion accessible via transit from Pelican Town.
+### Locations
+- **Morioh-cho Main Map**: Town center, residential district, and commercial zone.
+- **Morioh Station**: Transit hub connecting Pelican Town to Morioh-cho.
+- **Coastal District**: Boing-Boing Rock and seaside paths.
+- **Kameyu Department Store**: Commercial shopping area.
+- **Trattoria Trussardi**: Italian restaurant serving specialized buff dishes.
+- **Café Deux Magots**: Outdoor cafe and meeting spot.
+- **Morioh Radio Station**: Broadcast tower and studio.
 
-- **Morioh Station & Transit**: Travel between Pelican Town and Morioh-cho Station.
-- **Boing-Boing Rock & Coastline**: Explore iconic locations along the coast including Boing-Boing Rock, Kameyu Department Store, Café Deux Magots, and Morioh Radio Station.
-- **Trattoria Trussardi**: Visit Tonio Trussardi's restaurant for specialized dishes and health restoration.
-- **Morioh Radio Audio & Atmosphere**: Background audio, dialogue, and environment inspired by 1999 Bizarre Summer.
-- **Town Residents & Quests**: Custom NPCs, dialogues, heart events, and Stand-inspired features.
+### Characters
+- **Josuke Higashikata**
+- **Okuyasu Nijimura**
+- **Rohan Kishibe**
+- **Jotaro Kujo**
+- **Koichi Hirose**
+- **Tonio Trussardi**
+- **Reimi Sugimoto**
+- **Yoshikage Kira**
+
+### Audio and Music
+- **Morioh Radio OST**: Background music tracks for day, night, and seasons.
+- Custom sound effects for character interactions and locations.
+
+### Gameplay Mechanics
+- **Trattoria Trussardi Dining**: Meals providing unique status effects and health restoration.
+- **Custom Quests**: Storyline events and village tasks.
+- **Heart Events**: Individual character progression and cutscenes.
 
 ---
 
@@ -27,67 +47,40 @@ In JoJo's Bizarre Adventure lore, Morioh-cho is a coastal town located in S-City
 
 ## Building and Installation
 
-### 1. Prerequisites
-Ensure Stardew Valley 1.6+, SMAPI 4.0+, and the .NET 6 SDK are installed.
-
-### 2. Clone the Repository
+### 1. Clone Repository
 ```bash
 git clone https://github.com/nickborrello/MoriohTownMod.git
 cd MoriohTownMod
 ```
 
-### 3. Build & Auto-Deploy
-Run the build script:
+### 2. Build and Deploy
 ```bash
 ./scripts/build-mod.sh
 ```
 
-This compiles the C# SMAPI mod and copies both the assembly and the Content Patcher pack into your Stardew Valley `Mods/` directory:
-- `Mods/StardewIslandMod/`
-- `Mods/[CP] StardewIslandMod/`
+The build script compiles the C# assembly and copies the mod and Content Patcher pack into your Stardew Valley `Mods/` directory.
 
-### 4. Launch Stardew Valley
-Launch Stardew Valley via SMAPI. The SMAPI console will log:
-```
-[INFO  SMAPI] Morioh-cho Mod loaded — Welcome to Morioh-cho, S-City, M-Prefecture (1999 Bizarre Summer)!
-```
+### 3. Launch Game
+Launch Stardew Valley via SMAPI.
 
 ---
 
-## Developer Tooling
-
-| Script | Command | Purpose |
-|--------|---------|---------|
-| Build & Deploy | `./scripts/build-mod.sh` | Compiles .NET 6 assembly & copies mod + Content Pack to `Mods/` |
-| Validate Manifests | `./scripts/validate-manifests.sh` | Validates JSON syntax and required manifest/content fields |
-| Check SMAPI Logs | `./scripts/read-smapi-errors.sh` | Parses SMAPI logs for errors and warnings |
-| Package Release | `./scripts/package-release.sh` | Creates a release ZIP archive in `releases/` |
-
----
-
-## Project Structure
+## Repository Structure
 
 ```
 focused-faraday/
-├── StardewIslandMod.csproj        # .NET 6 C# project configuration
-├── manifest.json                  # SMAPI mod manifest (NickBorrello.MoriohChoMod)
-├── ModEntry.cs                    # C# SMAPI entry point & event handlers
-├── AGENT.md                       # Developer & AI Agent guidance
-├── README.md                      # Repository overview & setup guide
-├── [CP] StardewIslandMod/         # Content Patcher content pack
-│   ├── manifest.json              # Content Patcher manifest
-│   └── content.json               # Content Patcher patch definitions
-├── assets/                        # Custom maps, tilesets, sprites, portraits, dialogue
-│   ├── maps/
-│   ├── tilesets/
-│   ├── sprites/
-│   ├── portraits/
-│   └── dialogue/
-└── scripts/                       # Build & test automation scripts
+├── StardewIslandMod.csproj        # C# project configuration
+├── manifest.json                  # SMAPI mod manifest
+├── ModEntry.cs                    # C# SMAPI entry point
+├── AGENT.md                       # Developer guidelines
+├── README.md                      # Repository documentation
+├── [CP] StardewIslandMod/         # Content Patcher pack
+├── assets/                        # Maps, tilesets, sprites, portraits, dialogue
+└── scripts/                       # Build and validation scripts
 ```
 
 ---
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+MIT License
