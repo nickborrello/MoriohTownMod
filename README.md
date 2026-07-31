@@ -32,8 +32,8 @@ Ensure you have **Stardew Valley 1.6+**, **SMAPI 4.0+**, and **.NET 6 SDK** inst
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/nickborrello/MoriohIslandMod.git
-cd MoriohIslandMod
+git clone https://github.com/nickborrello/MoriohTownMod.git
+cd MoriohTownMod
 ```
 
 ### 3. Build & Auto-Deploy
