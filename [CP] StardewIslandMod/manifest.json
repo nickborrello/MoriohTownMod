@@ -1,9 +1,9 @@
 {
-  "Name": "Morioh Island — JoJo Part 4 [Content Pack]",
+  "Name": "Morioh Town — JoJo Part 4 [Content Pack]",
   "Author": "Nick Borrello",
   "Version": "1.0.0",
   "Description": "Content pack for Morioh Town — provides custom maps (Boing-Boing Rock, Kameyu Dept Store, Trattoria Trussardi), sprites, dialogue, and location data.",
-  "UniqueID": "NickBorrello.MoriohIslandMod.CP",
+  "UniqueID": "NickBorrello.MoriohTownMod.CP",
   "ContentPackFor": {
     "UniqueID": "Pathoschild.ContentPatcher",
     "MinimumVersion": "2.0.0"

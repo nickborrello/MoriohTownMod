@@ -1,9 +1,9 @@
 {
-  "Name": "Morioh Island Mod (JoJo Part 4)",
+  "Name": "Morioh Town Mod (JoJo Part 4)",
   "Author": "Nick Borrello",
   "Version": "1.0.0",
-  "Description": "Adds Morioh Town — the iconic coastal town from JoJo's Bizarre Adventure Part 4 (Diamond is Unbreakable) — as a new explorable island in Stardew Valley.",
-  "UniqueID": "NickBorrello.MoriohIslandMod",
+  "Description": "Adds Morioh Town — the iconic coastal town from S-City, M-Prefecture in JoJo's Bizarre Adventure Part 4 (Diamond is Unbreakable) — as a new explorable town expansion in Stardew Valley.",
+  "UniqueID": "NickBorrello.MoriohTownMod",
   "EntryDll": "StardewIslandMod.dll",
   "MinimumApiVersion": "4.0.0",
   "UpdateKeys": [],

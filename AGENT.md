@@ -1,6 +1,14 @@
 # AGENT.md — Developer & AI Agent Guidelines
 
-This repository contains **Morioh Island Mod**, a hybrid Stardew Valley mod (C# SMAPI mod + Content Patcher content pack) that brings **Morioh Town** from *JoJo's Bizarre Adventure Part 4: Diamond is Unbreakable* to Stardew Valley.
+This repository contains **Morioh Town Mod**, a hybrid Stardew Valley mod (C# SMAPI mod + Content Patcher content pack) that brings **Morioh Town** from *S-City, M-Prefecture* in *JoJo's Bizarre Adventure Part 4: Diamond is Unbreakable* to Stardew Valley.
+
+---
+
+## 🏙️ Lore & Mod Context
+
+- **Town Location**: Morioh Town (杜王町) is a coastal town in S-City, M-Prefecture on the Japanese mainland.
+- **In-Game Destination**: Modeled as a coastal town expansion accessible via train/transit or coastal warp from Pelican Town.
+- **Key Landmarks**: Morioh Station, Boing-Boing Rock along the coast, Kameyu Department Store, Café Deux Magots, Trattoria Trussardi, Morioh Radio Station.
 
 ---
 
@@ -16,7 +24,7 @@ This repository contains **Morioh Island Mod**, a hybrid Stardew Valley mod (C# 
 
 ## 📐 Architecture & Preference Hierarchy
 
-1. **Content Patcher First**: Use Content Patcher JSON (`[CP] StardewIslandMod/content.json`) for maps, sprite overlays, dialogue, location entries, shop data, and audio cues whenever possible.
+1. **Content Patcher First**: Use Content Patcher JSON (`[CP] StardewIslandMod/content.json`) for maps (`Maps/MoriohTown`), sprite overlays, dialogue, location entries (`Data/Locations`), shop data, and audio cues whenever possible.
 2. **SMAPI APIs & Events Second**: Use C# event handlers (`ModEntry.cs`) for warp triggers, custom mechanics, unlock flags, save state persistence, and cutscene triggers.
 3. **Harmony Patches Last**: Use Harmony patches **only** if SMAPI public APIs or Content Patcher cannot accomplish the task.
 
@@ -29,13 +37,13 @@ focused-faraday/
 ├── AGENT.md                       # AI Agent / Dev guidelines (this file)
 ├── README.md                      # Human user documentation & setup guide
 ├── StardewIslandMod.csproj        # .NET 6 C# project configured with ModBuildConfig
-├── manifest.json                  # SMAPI mod manifest (NickBorrello.MoriohIslandMod)
+├── manifest.json                  # SMAPI mod manifest (NickBorrello.MoriohTownMod)
 ├── ModEntry.cs                    # Main SMAPI entry point & event handlers
 ├── [CP] StardewIslandMod/         # Content Patcher pack
-│   ├── manifest.json              # CP manifest (NickBorrello.MoriohIslandMod.CP)
+│   ├── manifest.json              # CP manifest (NickBorrello.MoriohTownMod.CP)
 │   └── content.json               # Content Patcher patch definitions
 ├── assets/                        # Mod assets
-│   ├── maps/                      # Tiled .tmx maps (e.g. MoriohIsland.tmx)
+│   ├── maps/                      # Tiled .tmx maps (e.g. MoriohTown.tmx)
 │   ├── tilesets/                  # Tileset PNG spritesheets
 │   ├── sprites/                   # NPC, object, and vehicle sprites
 │   ├── portraits/                 # NPC dialogue portraits
@@ -83,7 +91,7 @@ focused-faraday/
 - Use Content Patcher tokens (`{{Season}}`, `{{Day}}`, `{{Weather}}`, `{{HasFlag}}`, etc.) for conditions.
 - Test patches in-game using SMAPI console commands:
   - `patch summary` — Lists all active patches and conditions.
-  - `patch reload NickBorrello.MoriohIslandMod.CP` — Hot-reloads Content Patcher definitions without restarting the game.
+  - `patch reload NickBorrello.MoriohTownMod.CP` — Hot-reloads Content Patcher definitions without restarting the game.
 
 ---
 

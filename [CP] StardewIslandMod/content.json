@@ -2,10 +2,10 @@
   "Format": "2.3.0",
   "Changes": [
     {
-      "LogName": "Load Morioh Town Main Island Map",
+      "LogName": "Load Morioh Town Main Map",
       "Action": "Load",
-      "Target": "Maps/MoriohIsland",
-      "FromFile": "assets/maps/MoriohIsland.tmx",
+      "Target": "Maps/MoriohTown",
+      "FromFile": "assets/maps/MoriohTown.tmx",
       "When": {}
     },
     {
@@ -13,17 +13,17 @@
       "Action": "EditData",
       "Target": "Data/Locations",
       "Entries": {
-        "MoriohIsland": {
+        "MoriohTown": {
           "DisplayName": "Morioh Town (S-City, M-Prefecture)",
           "DefaultArrivalTile": { "X": 15, "Y": 25 },
           "CreateOnLoad": {
-            "MapPath": "Maps/MoriohIsland"
+            "MapPath": "Maps/MoriohTown"
           }
         }
       }
     },
     {
-      "LogName": "Add Morioh Town Ferry Warp from Willy's Beach Boat",
+      "LogName": "Add Morioh Town Coastal Station / Warp",
       "Action": "EditData",
       "Target": "Data/WorldMap",
       "Entries": {},
