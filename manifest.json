@@ -1,0 +1,11 @@
+{
+  "Name": "Stardew Island Mod",
+  "Author": "YourName",
+  "Version": "1.0.0",
+  "Description": "Adds a new explorable island — Mystic Isle — to Stardew Valley.",
+  "UniqueID": "YourName.StardewIslandMod",
+  "EntryDll": "StardewIslandMod.dll",
+  "MinimumApiVersion": "4.0.0",
+  "UpdateKeys": [],
+  "ContentPackFor": null
+}

@@ -1,0 +1,27 @@
+## Build output
+bin/
+obj/
+
+## IDE
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln.docstates
+
+## NuGet
+packages/
+*.nupkg
+project.lock.json
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Stardew-specific
+releases/
+*.zip
+
+## SMAPI logs (if copied locally)
+SMAPI-latest.txt
+SMAPI-crash.txt

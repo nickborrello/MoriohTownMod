@@ -1,0 +1,33 @@
+{
+  "Format": "2.3.0",
+  "Changes": [
+    {
+      "LogName": "Load Mystic Isle Map",
+      "Action": "Load",
+      "Target": "Maps/MysticIsle",
+      "FromFile": "assets/maps/MysticIsle.tmx",
+      "When": {}
+    },
+    {
+      "LogName": "Add Mystic Isle Location Data",
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "MysticIsle": {
+          "DisplayName": "Mystic Isle",
+          "DefaultArrivalTile": { "X": 12, "Y": 20 },
+          "CreateOnLoad": {
+            "MapPath": "Maps/MysticIsle"
+          }
+        }
+      }
+    },
+    {
+      "LogName": "Add Mystic Isle Warp — Beach Dock",
+      "Action": "EditData",
+      "Target": "Data/WorldMap",
+      "Entries": {},
+      "When": {}
+    }
+  ]
+}
