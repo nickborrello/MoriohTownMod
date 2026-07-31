@@ -5,8 +5,8 @@
     <Nullable>enable</Nullable>
     <AssemblyName>StardewIslandMod</AssemblyName>
     <RootNamespace>StardewIslandMod</RootNamespace>
-    <!-- Set this to your Stardew Valley installation path -->
-    <GamePath>/path/to/Stardew Valley</GamePath>
+    <!-- Stardew Valley installation path -->
+    <GamePath>/Users/nickborrello/Library/Application Support/Steam/steamapps/common/Stardew Valley/Contents/MacOS</GamePath>
     <EnableModDeploy>true</EnableModDeploy>
     <EnableModZip>false</EnableModZip>
   </PropertyGroup>

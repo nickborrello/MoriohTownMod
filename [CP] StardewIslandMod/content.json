@@ -2,28 +2,28 @@
   "Format": "2.3.0",
   "Changes": [
     {
-      "LogName": "Load Mystic Isle Map",
+      "LogName": "Load Morioh Town Main Island Map",
       "Action": "Load",
-      "Target": "Maps/MysticIsle",
-      "FromFile": "assets/maps/MysticIsle.tmx",
+      "Target": "Maps/MoriohIsland",
+      "FromFile": "assets/maps/MoriohIsland.tmx",
       "When": {}
     },
     {
-      "LogName": "Add Mystic Isle Location Data",
+      "LogName": "Add Morioh Town Location Data",
       "Action": "EditData",
       "Target": "Data/Locations",
       "Entries": {
-        "MysticIsle": {
-          "DisplayName": "Mystic Isle",
-          "DefaultArrivalTile": { "X": 12, "Y": 20 },
+        "MoriohIsland": {
+          "DisplayName": "Morioh Town (S-City, M-Prefecture)",
+          "DefaultArrivalTile": { "X": 15, "Y": 25 },
           "CreateOnLoad": {
-            "MapPath": "Maps/MysticIsle"
+            "MapPath": "Maps/MoriohIsland"
           }
         }
       }
     },
     {
-      "LogName": "Add Mystic Isle Warp — Beach Dock",
+      "LogName": "Add Morioh Town Ferry Warp from Willy's Beach Boat",
       "Action": "EditData",
       "Target": "Data/WorldMap",
       "Entries": {},
