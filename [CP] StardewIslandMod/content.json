@@ -2,28 +2,28 @@
   "Format": "2.3.0",
   "Changes": [
     {
-      "LogName": "Load Morioh Town Main Map",
+      "LogName": "Load Morioh-cho Main Map",
       "Action": "Load",
-      "Target": "Maps/MoriohTown",
-      "FromFile": "assets/maps/MoriohTown.tmx",
+      "Target": "Maps/MoriohCho",
+      "FromFile": "assets/maps/MoriohCho.tmx",
       "When": {}
     },
     {
-      "LogName": "Add Morioh Town Location Data",
+      "LogName": "Add Morioh-cho Location Data",
       "Action": "EditData",
       "Target": "Data/Locations",
       "Entries": {
-        "MoriohTown": {
-          "DisplayName": "Morioh Town (S-City, M-Prefecture)",
+        "MoriohCho": {
+          "DisplayName": "Morioh-cho (S-City, M-Prefecture)",
           "DefaultArrivalTile": { "X": 15, "Y": 25 },
           "CreateOnLoad": {
-            "MapPath": "Maps/MoriohTown"
+            "MapPath": "Maps/MoriohCho"
           }
         }
       }
     },
     {
-      "LogName": "Add Morioh Town Coastal Station / Warp",
+      "LogName": "Add Morioh-cho Coastal Station / Warp",
       "Action": "EditData",
       "Target": "Data/WorldMap",
       "Entries": {},

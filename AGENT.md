@@ -1,18 +1,18 @@
 # AGENT.md — Developer & AI Agent Guidelines
 
-This repository contains **Morioh Town Mod**, a hybrid Stardew Valley mod (C# SMAPI mod + Content Patcher content pack) that brings **Morioh Town** from *S-City, M-Prefecture* in *JoJo's Bizarre Adventure Part 4: Diamond is Unbreakable* to Stardew Valley.
+This repository contains **Morioh-cho Mod**, a hybrid Stardew Valley mod (C# SMAPI mod + Content Patcher content pack) that brings **Morioh-cho** (杜王町) from *S-City, M-Prefecture* in *JoJo's Bizarre Adventure Part 4: Diamond is Unbreakable* to Stardew Valley.
 
 ---
 
-## 🏙️ Lore & Mod Context
+## Lore & Mod Context
 
-- **Town Location**: Morioh Town (杜王町) is a coastal town in S-City, M-Prefecture on the Japanese mainland.
-- **In-Game Destination**: Modeled as a coastal town expansion accessible via train/transit or coastal warp from Pelican Town.
+- **Location**: Morioh-cho (杜王町) is a coastal town in S-City, M-Prefecture on the Japanese mainland.
+- **In-Game Destination**: Modeled as a coastal town expansion accessible via train or coastal transit from Pelican Town.
 - **Key Landmarks**: Morioh Station, Boing-Boing Rock along the coast, Kameyu Department Store, Café Deux Magots, Trattoria Trussardi, Morioh Radio Station.
 
 ---
 
-## 🛠️ Stack & Standards
+## Stack & Standards
 
 - **Game Target**: Stardew Valley 1.6+
 - **API Framework**: SMAPI 4.0+
@@ -22,28 +22,28 @@ This repository contains **Morioh Town Mod**, a hybrid Stardew Valley mod (C# SM
 
 ---
 
-## 📐 Architecture & Preference Hierarchy
+## Architecture & Preference Hierarchy
 
-1. **Content Patcher First**: Use Content Patcher JSON (`[CP] StardewIslandMod/content.json`) for maps (`Maps/MoriohTown`), sprite overlays, dialogue, location entries (`Data/Locations`), shop data, and audio cues whenever possible.
+1. **Content Patcher First**: Use Content Patcher JSON (`[CP] StardewIslandMod/content.json`) for maps (`Maps/MoriohCho`), sprite overlays, dialogue, location entries (`Data/Locations`), shop data, and audio cues whenever possible.
 2. **SMAPI APIs & Events Second**: Use C# event handlers (`ModEntry.cs`) for warp triggers, custom mechanics, unlock flags, save state persistence, and cutscene triggers.
 3. **Harmony Patches Last**: Use Harmony patches **only** if SMAPI public APIs or Content Patcher cannot accomplish the task.
 
 ---
 
-## 📁 Repository Directory Structure
+## Directory Structure
 
 ```
 focused-faraday/
 ├── AGENT.md                       # AI Agent / Dev guidelines (this file)
 ├── README.md                      # Human user documentation & setup guide
 ├── StardewIslandMod.csproj        # .NET 6 C# project configured with ModBuildConfig
-├── manifest.json                  # SMAPI mod manifest (NickBorrello.MoriohTownMod)
+├── manifest.json                  # SMAPI mod manifest (NickBorrello.MoriohChoMod)
 ├── ModEntry.cs                    # Main SMAPI entry point & event handlers
 ├── [CP] StardewIslandMod/         # Content Patcher pack
-│   ├── manifest.json              # CP manifest (NickBorrello.MoriohTownMod.CP)
+│   ├── manifest.json              # CP manifest (NickBorrello.MoriohChoMod.CP)
 │   └── content.json               # Content Patcher patch definitions
 ├── assets/                        # Mod assets
-│   ├── maps/                      # Tiled .tmx maps (e.g. MoriohTown.tmx)
+│   ├── maps/                      # Tiled .tmx maps (e.g. MoriohCho.tmx)
 │   ├── tilesets/                  # Tileset PNG spritesheets
 │   ├── sprites/                   # NPC, object, and vehicle sprites
 │   ├── portraits/                 # NPC dialogue portraits
@@ -58,7 +58,7 @@ focused-faraday/
 
 ---
 
-## 🔄 Required Workflow & Execution Rules
+## Required Workflow & Execution Rules
 
 1. **Inspect Before Changing**: Read `manifest.json`, `StardewIslandMod.csproj`, and `content.json` before modifying data structures.
 2. **Minimal Viable Edits**: Make target, localized edits. Do not refactor unrelated code.
@@ -70,7 +70,7 @@ focused-faraday/
 
 ---
 
-## 💻 C# & SMAPI Conventions
+## C# & SMAPI Conventions
 
 - **Entry Class**: Must inherit from `StardewModdingAPI.Mod`.
 - **Lightweight `Entry()`**: Only subscribe to events and register services in `Entry()`. Do not perform heavy file or game operations here.
@@ -84,18 +84,18 @@ focused-faraday/
 
 ---
 
-## 🎭 Content Patcher Conventions
+## Content Patcher Conventions
 
 - Use `Format: "2.3.0"` or latest supported Content Patcher format.
 - Every patch entry must include a clear, descriptive `LogName`.
 - Use Content Patcher tokens (`{{Season}}`, `{{Day}}`, `{{Weather}}`, `{{HasFlag}}`, etc.) for conditions.
 - Test patches in-game using SMAPI console commands:
   - `patch summary` — Lists all active patches and conditions.
-  - `patch reload NickBorrello.MoriohTownMod.CP` — Hot-reloads Content Patcher definitions without restarting the game.
+  - `patch reload NickBorrello.MoriohChoMod.CP` — Hot-reloads Content Patcher definitions without restarting the game.
 
 ---
 
-## 🚀 Key Commands
+## Key Commands
 
 ```bash
 # Build C# mod and deploy to Stardew Valley Mods folder:
