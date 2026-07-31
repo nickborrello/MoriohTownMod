@@ -5,6 +5,12 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 RELEASE_DIR="$PROJECT_DIR/releases"
 
+export PATH="/usr/local/share/dotnet/x64:/usr/local/share/dotnet:$PATH"
+export DOTNET_CLI_HOME="$PROJECT_DIR/scratch/.dotnet_home"
+export DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
+export DOTNET_NOLOGO=true
+mkdir -p "$PROJECT_DIR/scratch/.dotnet_home"
+
 # Extract version from manifest
 VERSION=$(python3 -c "import json; print(json.load(open('$PROJECT_DIR/manifest.json'))['Version'])")
 MOD_NAME="StardewIslandMod"
